@@ -14,6 +14,7 @@ services:
     privileged: true
     volumes:                             # 设置挂载目录
       - ${CODE_PATH_HOST}:/usr/src/code  # 引用 .env 配置中 CODE_PATH_HOST 变量，将宿主机上代码存放的目录挂载到容器中 /usr/src/code 目录
+      - ${SDK_PATH_HOST}/go:/usr/local/go # 引用 .env 配置中 SDK_PATH_HOST 变量，将容器中的/usr/local/go共享到宿主机上的sdk/go目录
     ports:                               # 设置端口映射
       - "8000:8000"
       - "8001:8001"
